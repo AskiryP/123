@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой интернет-магазин</title>
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96713823, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96713823" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <h1>Добро пожаловать в мой интернет-магазин!</h1>
+    
+    <div class="product">
+        <h2>Название товара</h2>
+        <p>Описание товара</p>
+        <p>Цена: $10</p>
+        <button onclick="addToCart()">Добавить в корзину</button>
+    </div>
+    
+    <div class="cart">
+        <h2>Корзина</h2>
+        <ul id="cart-items"></ul>
+        <p>Итого: $<span id="cart-total">0</span></p>
+    </div>
+
+    <script>
+        let cartItems = [];
+        let cartTotal = 0;
+
+        function addToCart() {
+            cartItems.push("Название товара");
+            cartTotal += 10;
+            updateCart();
+        }
+
+        function updateCart() {
+            let cartList = document.getElementById("cart-items");
+            cartList.innerHTML = "";
+            cartItems.forEach(item => {
+                let li = document.createElement("li");
+                li.textContent = item;
+                cartList.appendChild(li);
+            });
+
+            document.getElementById("cart-total").textContent = cartTotal;
+        }
+    </script>
+</body>
+</html>
